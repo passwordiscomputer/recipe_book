@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: jc_cuisine_development
+
+test:
+  adapter: postgresql
+  database: jc_cuisine_test
