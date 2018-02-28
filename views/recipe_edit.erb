@@ -1,0 +1,29 @@
+<h1><%= @recipe.title %></h1>
+
+<h2>add a fancy new ingredient :)</h2>
+<% if @ingredients.any?() %>
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+    <% @ingredients.each() do |ingredient| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="ingredient_ids[]" value="<%= ingredient.id() %>"><%= ingredient.name%>
+        </label>
+      </div>
+    <% end %>
+  <button type="submit">Add ingredients</button>
+</form>
+<% end %>
+
+<h2><%= @recipe.title %> Ingredients</h2>
+<% if @recipe.ingredients.any?() %>
+    <% @recipe.ingredients.each() do |ingredient| %>
+      <h3><%= ingredient.name%>
+        <form action="/recipes/<%= @recipe.id  %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <input name="ingredient_id_delete" type="hidden" value="<%= ingredient.id%>">
+          <button type="submit" class="btn btn-warning btn-xs">DELETE</button>
+        </form>
+      </h3>
+    <% end %>
+<% end %>

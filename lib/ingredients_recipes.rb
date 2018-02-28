@@ -1,4 +1,4 @@
-class IngredientsRecipes < ActiveRecord::Base
-  belongs_to :ingredients
-  belongs_to :recipes 
+class IngredientsRecipe < ActiveRecord::Base
+  belongs_to :ingredient # singular, single instance of ingredient
+  belongs_to :recipe # singular, single instance of recipe
 end

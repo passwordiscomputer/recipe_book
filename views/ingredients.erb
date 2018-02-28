@@ -1,0 +1,22 @@
+<div style="text-align:center">
+  <h1>INGREDIENT</h1>
+</div>
+<!-- ingredient list -->
+<div class="well">
+  <ul style="list-style: none;">
+    <% @ingredients.each() do |ingredient| %>
+      <li color="black"><a href="/ingredients/<%= ingredient.id() %>"><%= ingredient.name %></a></li>
+      <br>
+    <% end %>
+  </ul>
+</div>
+<br>
+<!-- add ingredient -->
+<div class="well">
+  <form action="/ingredients" method="post">
+      <input type="text" name="name" placeholder="ADD INGREDIENT">
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success">ADD</button>
+  </form>
+</div>
