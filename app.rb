@@ -5,6 +5,7 @@ also_reload("lib/**/*.rb")
 require("./lib/ingredients_recipes")
 require("./lib/ingredient")
 require("./lib/recipe")
+require("./lib/tag")
 require("pry")
 
 get('/')do
@@ -62,6 +63,11 @@ delete('/recipes/:id') do # deletes ingredient from recipe
   @recipe.ingredients.destroy(ingredient_id_delete.to_i)
   @ingredients = Ingredient.all - @recipe.ingredients
   erb(:recipe_edit)
+end
+
+get('/tags') do
+  @tags = Tag.all
+  erb(:tags)
 end
 
 

@@ -1,0 +1,13 @@
+<div style="text-align:center">
+  <h1>Our Famous Tags</h1>
+</div>
+<!-- recipe list -->
+<div class="well">
+  <ul style="list-style: none;">
+    <% @tags.each() do |tag| %>
+      <li color="black"><a href="/tags/<%= tag.id() %>"><%= tag.name %></a></li>
+      <br>
+    <% end %>
+  </ul>
+</div>
+<br>
