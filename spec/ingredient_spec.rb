@@ -1,11 +1,5 @@
-ENV['RACK_ENV'] = 'test'
-
-require("rspec")
-require("sinatra/activerecord")
-require("ingredients_recipes")
-require("ingredient")
-require("recipe")
-
+require("spec_helper")
+require('pry')
 
 describe(Ingredient) do
 
@@ -15,6 +9,11 @@ describe(Ingredient) do
       ingredient2 = Ingredient.create({:name => "coffee"})
       expect(Ingredient.all).to eq [ingredient1, ingredient2]
     end
+  end
+
+  it "ensures ingredient name contains only letters" do
+    ingredient = Ingredient.create({:name => "efgABC"})
+    expect(ingredient.save).to eq true
   end
 
 end
